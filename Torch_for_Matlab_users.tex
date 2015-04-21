@@ -1,0 +1,86 @@
+\documentclass[letter]{article}
+\usepackage[margin=.7in]{geometry}
+
+\usepackage{hyperref}
+
+\usepackage{fontspec}
+\setmainfont{Palatino Linotype}
+\newfontfamily{\maintext}{Palatino Linotype}
+\newfontfamily{\stressed}{Helvetica}
+\newfontfamily{\exotic}{Code2000}
+\newfontfamily{\math}{Asana Math}
+\pagenumbering{gobble}
+
+\newcommand{\frstClmnWidth}{.43in}
+\newcommand{\scndClmnWidth}{6.37in}
+\newcommand{\frstVrtclSpc}{.11in}
+\newcommand{\scndVrtclSpc}{.07in}
+
+\title{Torch for Matlab\textsuperscript{\textregistered}{\let\thefootnote\relax\footnote{Matlab\textsuperscript{\textregistered} is a registered trademark of The MathWorks, Inc.}} Users}
+\author{Ata Mahjoubfar\\
+\href{mailto:ata.m@ucla.edu}{ata.m@ucla.edu}}
+
+\begin{document}
+\maketitle
+
+\vspace{\frstVrtclSpc{}}
+\subsubsection*{Get help for a specific function:}
+\vspace{\scndVrtclSpc{}}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!help sqrt! \\ \hline
+\textbf{Torch} & \verb!help(torch.sqrt)! \\ \hline
+\end{tabular}
+
+\vspace{\frstVrtclSpc{}}
+\subsubsection*{Create a two dimensional tensor or matrix:}
+\vspace{\scndVrtclSpc{}}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb![9, 6, 3, 4; 7, 2, 8, 1]! \\ \hline
+\textbf{Torch} & \verb!torch.Tensor({{9, 6, 3, 4}, {7, 2, 8, 1}})! \\ \hline
+\end{tabular}
+
+\vspace{\frstVrtclSpc{}}
+Create a row vector:
+\vspace{\scndVrtclSpc{}}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb![9, 7, 6, 8]! or \verb![9 7 6 8]! \\ \hline
+\textbf{Torch} & \verb!torch.Tensor({{9, 7, 6, 8}})! \\ \hline
+\end{tabular}
+
+\vspace{\frstVrtclSpc{}}
+Create a column vector:
+\vspace{\scndVrtclSpc{}}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb![9; 7; 6; 8]! \\ \hline
+\textbf{Torch} & \verb!torch.Tensor({{9}, {7}, {6}, {8}})! \\ \hline
+\end{tabular}
+
+\vspace{\frstVrtclSpc{}}
+Create a one dimensional tensor:
+\vspace{\scndVrtclSpc{}}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & Matlab does not have \textit{one dimensional tensors}. You can verify this by running \verb!ndims([9, 7, 6, 8]).! \\ \hline
+\textbf{Torch} & \verb!torch.Tensor({9, 7, 6, 8})! \\ \hline
+\end{tabular}
+
+\vspace{\frstVrtclSpc{}}
+Short description here:
+\vspace{\scndVrtclSpc{}}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!Matlab code here! \\ \hline
+\textbf{Torch} & \verb!Torch code here! \\ \hline
+\end{tabular}
+
+\end{document}
