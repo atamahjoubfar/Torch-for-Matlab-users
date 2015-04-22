@@ -1,3 +1,5 @@
+% This is a XeLaTeX document. To process and view it use the following command:
+% xelatex Torch_for_Matlab_users.tex && open Torch_for_Matlab_users.pdf
 \documentclass[letter]{article}
 \usepackage[margin=.7in]{geometry}
 
@@ -30,6 +32,20 @@
 \textbf{Matlab} & \verb!help sqrt! \\ \hline
 \textbf{Torch} & \verb!help(torch.sqrt)! \\ \hline
 \end{tabular}
+\\
+
+\noindent Documentation of \verb!sqrt! function is shown.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Get help for a specific function:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!testVar = (4*5-1+10.1)/3;! \\ \hline
+\textbf{Torch} & \verb!testVar = (4*5-1+10.1)/3;! \\ \hline
+\end{tabular}
+\\
+
+\noindent The resultant value (9.7) is assigned to variable \verb!testVar!.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Matrices and Tensors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,6 +56,9 @@
 \textbf{Matlab} & \verb!m = [9, 6, 3, 4; 7, 2, 8, 1]! \\ \hline
 \textbf{Torch} & \verb!m = torch.Tensor({{9, 6, 3, 4}, {7, 2, 8, 1}})! \\ \hline
 \end{tabular}
+\\
+
+\noindent A \verb!2!$\times$\verb!4! matrix (two-dimensional tensor) with specified elements is formed and assigned to \verb!m!.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a row vector:}
 
@@ -111,8 +130,8 @@
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb!m(2,3)! \\ \hline
-\textbf{Torch} & \verb!m[{2,3}]! or \verb!m[2][3]! \\ \hline
+\textbf{Matlab} & \verb!m(2, 3)! \\ \hline
+\textbf{Torch} & \verb!m[{2, 3}]! or \verb!m[2][3]! \\ \hline
 \end{tabular}
 \\
 
@@ -122,8 +141,8 @@
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb!m(2,:)! \\ \hline
-\textbf{Torch} & \verb!m[{{2},{}}]! \\ \hline
+\textbf{Matlab} & \verb!m(2, :)! \\ \hline
+\textbf{Torch} & \verb!m[{{2}, {}}]! \\ \hline
 \end{tabular}
 \\
 
@@ -134,7 +153,7 @@
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
 \textbf{Matlab} & \textit{Not available} \\ \hline
-\textbf{Torch} & \verb!m[{2,{}}]! or \verb!m[2]! \\ \hline
+\textbf{Torch} & \verb!m[{2, {}}]! or \verb!m[2]! \\ \hline
 \end{tabular}
 \\
 
@@ -144,8 +163,8 @@
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb!m(:,2)! \\ \hline
-\textbf{Torch} & \verb!m[{{},{2}}]! \\ \hline
+\textbf{Matlab} & \verb!m(:, 2)! \\ \hline
+\textbf{Torch} & \verb!m[{{}, {2}}]! \\ \hline
 \end{tabular}
 \\
 
@@ -156,7 +175,7 @@
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
 \textbf{Matlab} & \textit{Not available} \\ \hline
-\textbf{Torch} & \verb!m[{{},2}]! \\ \hline
+\textbf{Torch} & \verb!m[{{}, 2}]! \\ \hline
 \end{tabular}
 \\
 
@@ -166,8 +185,8 @@
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb!m(2,2:4)! \\ \hline
-\textbf{Torch} & \verb!m[{{2},{2,4}}] or m[{2,{2,4}}]! \\ \hline
+\textbf{Matlab} & \verb!m(2, 2:4)! \\ \hline
+\textbf{Torch} & \verb!m[{{2}, {2,4}}] or m[{2, {2,4}}]! \\ \hline
 \end{tabular}
 \\
 
@@ -175,27 +194,150 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Forming Basic Tensors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create a tensor over a range of values with step 1:}
+\subsubsection*{Create a tensor over a range of values with unit step:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
 \textbf{Matlab} & \verb!3:8! \\ \hline
-\textbf{Torch} & \verb!torch.range(3,8)! \\ \hline
+\textbf{Torch} & \verb!torch.range(3, 8)! \\ \hline
 \end{tabular}
 \\
 
-\noindent Torch's result is a one-dimensional tensor.
+\noindent Torch's result is a one-dimensional tensor with elements spaced \verb!1! strating at \verb!3!.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a tensor over a range of values with an arbitrary step:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
 \textbf{Matlab} & \verb!3:-1.9:-4.2! \\ \hline
-\textbf{Torch} & \verb!torch.range(3,-4.2,-1.9)! \\ \hline
+\textbf{Torch} & \verb!torch.range(3, -4.2, -1.9)! \\ \hline
 \end{tabular}
 \\
 
-\noindent Torch's result is a one-dimensional tensor.
+\noindent Torch's result is a one-dimensional tensor with elements spaced \verb!-1.9! strating at \verb!3!.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create a tensor with equally-spaced elements:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!linspace(3, 8, 50)! \\ \hline
+\textbf{Torch} & \verb!torch.linspace(3, 8, 50)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Torch's result is a one-dimensional tensor with \verb!50! equally-spaced elements strating at \verb!3! and ending at \verb!8!.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create a tensor with exponentially-spaced elements:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!logspace(3, 8, 50)! \\ \hline
+\textbf{Torch} & \verb!torch.logspace(3, 8, 50)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Torch's result is a one-dimensional tensor with \verb!50! exponentially-spaced elements strating at $10^3$ and ending at $10^8$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create all zeros vector or one-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!zeros(1,4)! or \verb!zeros(4,1)! \\ \hline
+\textbf{Torch} & \verb!torch.zeros(4)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Torch's result is a one-dimensional tensor with \verb!4! zero elements.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create all zeros matrix:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!zeros(5,3)! \\ \hline
+\textbf{Torch} & \verb!torch.zeros(5,3)! \\ \hline
+\end{tabular}
+\\
+
+\noindent \verb!5!$\times$\verb!3! matrix of zeros is generated.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create all ones vector or one-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!ones(1,4)! or \verb!ones(4,1)! \\ \hline
+\textbf{Torch} & \verb!torch.ones(4)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Torch's result is a one-dimensional tensor with \verb!4! one elements.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create all ones matrix:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!ones(5,3)! \\ \hline
+\textbf{Torch} & \verb!torch.ones(5,3)! \\ \hline
+\end{tabular}
+\\
+
+\noindent \verb!5!$\times$\verb!3! matrix of ones is generated.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create identity matrix:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!eye(4)! or \verb!eye(5,3)! \\ \hline
+\textbf{Torch} & \verb!torch.eye(3)! or \verb!torch.eye(5,3)! \\ \hline
+\end{tabular}
+\\
+
+\noindent \verb!4!$\times$\verb!4! and \verb!5!$\times$\verb!3! identity matrices are generated, respectively.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create uniformly-distributed random vector or one-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!rand(1,4)! or \verb!rand(4,1)! \\ \hline
+\textbf{Torch} & \verb!torch.rand(4)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Torch's result is a one-dimensional tensor with \verb!4! random elements from uniform probability distribution.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create uniformly-distributed random matrix:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!rand(5,3)! \\ \hline
+\textbf{Torch} & \verb!torch.rand(5,3)! \\ \hline
+\end{tabular}
+\\
+
+\noindent \verb!5!$\times$\verb!3! matrix of random elements from uniform probability distribution is generated.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create normally-distributed random vector or one-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!randn(1,4)! or \verb!randn(4,1)! \\ \hline
+\textbf{Torch} & \verb!torch.randn(4)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Torch's result is a one-dimensional tensor with \verb!4! random elements from normal probability distribution.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create normally-distributed random matrix:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!randn(5,3)! \\ \hline
+\textbf{Torch} & \verb!torch.randn(5,3)! \\ \hline
+\end{tabular}
+\\
+
+\noindent \verb!5!$\times$\verb!3! matrix of random elements from normal probability distribution is generated.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Operations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Short description here:}
 
