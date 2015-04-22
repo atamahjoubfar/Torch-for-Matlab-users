@@ -13,8 +13,6 @@
 
 \newcommand{\frstClmnWidth}{.43in}
 \newcommand{\scndClmnWidth}{6.37in}
-\newcommand{\frstVrtclSpc}{.11in}
-\newcommand{\scndVrtclSpc}{.07in}
 
 \title{Torch for Matlab\textsuperscript{\textregistered}{\let\thefootnote\relax\footnote{Matlab\textsuperscript{\textregistered} is a registered trademark of The MathWorks, Inc.}} Users}
 \author{Ata Mahjoubfar\\
@@ -22,65 +20,211 @@
 
 \begin{document}
 \maketitle
-
-\vspace{\frstVrtclSpc{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{General}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Get help for a specific function:}
-\vspace{\scndVrtclSpc{}}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
 \textbf{Matlab} & \verb!help sqrt! \\ \hline
 \textbf{Torch} & \verb!help(torch.sqrt)! \\ \hline
 \end{tabular}
-
-\vspace{\frstVrtclSpc{}}
-\subsubsection*{Create a two dimensional tensor or matrix:}
-\vspace{\scndVrtclSpc{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Matrices and Tensors}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create a two-dimensional tensor or matrix:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb![9, 6, 3, 4; 7, 2, 8, 1]! \\ \hline
-\textbf{Torch} & \verb!torch.Tensor({{9, 6, 3, 4}, {7, 2, 8, 1}})! \\ \hline
+\textbf{Matlab} & \verb!m = [9, 6, 3, 4; 7, 2, 8, 1]! \\ \hline
+\textbf{Torch} & \verb!m = torch.Tensor({{9, 6, 3, 4}, {7, 2, 8, 1}})! \\ \hline
 \end{tabular}
-
-\vspace{\frstVrtclSpc{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a row vector:}
-\vspace{\scndVrtclSpc{}}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb![9, 7, 6, 8]! or \verb![9 7 6 8]! \\ \hline
-\textbf{Torch} & \verb!torch.Tensor({{9, 7, 6, 8}})! \\ \hline
+\textbf{Matlab} & \verb!v = [9, 7, 6, 8]! or \verb!v = [9 7 6 8]! \\ \hline
+\textbf{Torch} & \verb!v = torch.Tensor({{9, 7, 6, 8}})! \\ \hline
 \end{tabular}
+\\
 
-\vspace{\frstVrtclSpc{}}
+\noindent But, this is not used as a vector in Torch because it is still a two-dimensional Tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a column vector:}
-\vspace{\scndVrtclSpc{}}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb![9; 7; 6; 8]! \\ \hline
-\textbf{Torch} & \verb!torch.Tensor({{9}, {7}, {6}, {8}})! \\ \hline
+\textbf{Matlab} & \verb!v = [9; 7; 6; 8]! \\ \hline
+\textbf{Torch} & \verb!v = torch.Tensor({{9}, {7}, {6}, {8}})! \\ \hline
 \end{tabular}
+\\
 
-\vspace{\frstVrtclSpc{}}
-\subsubsection*{Create a one dimensional tensor:}
-\vspace{\scndVrtclSpc{}}
+\noindent But, this is not used as a vector in Torch because it is still a two-dimensional Tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create a one-dimensional tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & Matlab does not have \textit{one dimensional tensors}. You can verify this by running \verb!ndims([9, 7, 6, 8]).! \\ \hline
-\textbf{Torch} & \verb!torch.Tensor({9, 7, 6, 8})! \\ \hline
+\textbf{Matlab} & \textit{Not available} \\ \hline
+\textbf{Torch} & \verb!t = torch.Tensor({9, 7, 6, 8})! \\ \hline
 \end{tabular}
+\\
 
-\vspace{\frstVrtclSpc{}}
+\noindent Matlab does not have \textit{one-dimensional tensors}; this can be verified by running \verb!ndims([9, 7, 6, 8])!. On the other hand, for many operations that Matlab uses row or column vectors, Torch uses a one-dimensional tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Access an element in a vector or one-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!v(2)! \\ \hline
+\textbf{Torch} & \verb!t[2]! \\ \hline
+\end{tabular}
+\\
+
+\noindent Second element of the vector is accessed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Access an element from the end of a vector or one-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!v(end-1)! \\ \hline
+\textbf{Torch} & \verb!t[-2]! \\ \hline
+\end{tabular}
+\\
+
+\noindent Second element from the end of the vector is accessed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Access a range of elements in a vector or one-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!v(2:4)! \\ \hline
+\textbf{Torch} & \verb!t[{{2,4}}]! \\ \hline
+\end{tabular}
+\\
+
+\noindent Second to fourth elements of the vector are accessed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Access an element in a Matrix:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!m(2,3)! \\ \hline
+\textbf{Torch} & \verb!m[{2,3}]! or \verb!m[2][3]! \\ \hline
+\end{tabular}
+\\
+
+\noindent In both cases, second row, third column element is accessed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Access a row in a Matrix as a two-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!m(2,:)! \\ \hline
+\textbf{Torch} & \verb!m[{{2},{}}]! \\ \hline
+\end{tabular}
+\\
+
+\noindent The returned row is a two-dimensional tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Access a row in a Matrix as a one-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \textit{Not available} \\ \hline
+\textbf{Torch} & \verb!m[{2,{}}]! or \verb!m[2]! \\ \hline
+\end{tabular}
+\\
+
+\noindent The returned row is a one-dimensional tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Access a column in a Matrix as a two-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!m(:,2)! \\ \hline
+\textbf{Torch} & \verb!m[{{},{2}}]! \\ \hline
+\end{tabular}
+\\
+
+\noindent The returned column is a two-dimensional tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Access a column in a Matrix as a one-dimensional tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \textit{Not available} \\ \hline
+\textbf{Torch} & \verb!m[{{},2}]! \\ \hline
+\end{tabular}
+\\
+
+\noindent The returned column is a one-dimensional tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Access a range of elements in a Matrix:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!m(2,2:4)! \\ \hline
+\textbf{Torch} & \verb!m[{{2},{2,4}}] or m[{2,{2,4}}]! \\ \hline
+\end{tabular}
+\\
+
+\noindent The second to fourth columns of the second row are returned. In Torch, there is a slight difference between using \verb!index! (e.g. \verb!2!) or \verb!{index}! (e.g. \verb!{2}!) for pointing to a singleton dimension. For \verb!{index}!, the dimension of the returned tensor is same as the original tensor (e.g. tensor~\verb!m!). For \verb!index!, the singleton dimension is removed, and the dimension of the returned tensor is one less than the original tensor (e.g. tensor~\verb!m!). Also, \verb!{}! refers to all elements in that dimension. Finally, \verb!-index! means \verb!index!-th element from the end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Forming Basic Tensors}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create a tensor over a range of values with step 1:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!3:8! \\ \hline
+\textbf{Torch} & \verb!torch.range(3,8)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Torch's result is a one-dimensional tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create a tensor over a range of values with an arbitrary step:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!3:-1.9:-4.2! \\ \hline
+\textbf{Torch} & \verb!torch.range(3,-4.2,-1.9)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Torch's result is a one-dimensional tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Short description here:}
-\vspace{\scndVrtclSpc{}}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
 \textbf{Matlab} & \verb!Matlab code here! \\ \hline
 \textbf{Torch} & \verb!Torch code here! \\ \hline
 \end{tabular}
+\\
 
+\noindent Description of the details here.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Short description here:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!Matlab code here! \\ \hline
+\textbf{Torch} & \verb!Torch code here! \\ \hline
+\end{tabular}
+\\
+
+\noindent Description of the details here.
+
