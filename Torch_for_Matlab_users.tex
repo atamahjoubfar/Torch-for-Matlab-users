@@ -36,16 +36,27 @@
 
 \noindent Documentation of \verb!sqrt! function is shown.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Get help for a specific function:}
+\subsubsection*{Scalar operations:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb!testVar = (4*5-1+10.1)/3;! \\ \hline
-\textbf{Torch} & \verb!testVar = (4*5-1+10.1)/3;! \\ \hline
+\textbf{Matlab} & \verb!testVar1 = (4*5-1+10.1)/3^2;! \\ \hline
+\textbf{Torch} & \verb!testVar1 = (4*5-1+10.1)/3^2;! \\ \hline
 \end{tabular}
 \\
 
-\noindent The resultant value (9.7) is assigned to variable \verb!testVar!.
+\noindent The resultant value (3.2333) is assigned to variable \verb!testVar1!.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Scalar assignment:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!testVar2 = testVar1;! \\ \hline
+\textbf{Torch} & \verb!testVar2 = testVar1;! \\ \hline
+\end{tabular}
+\\
+
+\noindent The value of \verb!testVar1! variable (3.2333) is assigned to \verb!testVar2! variable.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Matrices and Tensors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -339,16 +350,71 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Operations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Short description here:}
+\subsubsection*{Tensor assignment without memory copy:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb!Matlab code here! \\ \hline
-\textbf{Torch} & \verb!Torch code here! \\ \hline
+\textbf{Matlab} & \textit{Not directly available} \\ \hline
+\textbf{Torch} & \verb!matOut = matIn! or \verb!matOut = matIn;! \\ \hline
 \end{tabular}
 \\
 
-\noindent Description of the details here.
+\noindent Matlab internally handles memory assignment for a copied array. As soon, as the copied array is changed in Matlab, a copy of the initial array is generated. Whereas, Torch gives this option to have a copied tensor that points to the same location in the memory as the initial tensor. For example, if elements of \verb!matOut! are modified here, the same changes happen to the elements of the \verb!matIn!.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Tensor assignment with memory copy:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!matOut = matIn! or \verb!matOut = matIn;! \\ \hline
+\textbf{Torch} & \verb!matOut = matIn:clone()! or \verb!matOut = matIn:clone();! \\ \hline
+\end{tabular}
+\\
+
+\noindent Matlab's internal memory handling for array assignment is usually closer to this. Here, Torch generates a copy of the array contents in memory. Any changes in \verb!matOut! elements are independent of the changes in the elements of the \verb!matIn!.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Square root of elements:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!matOut = sqrt(matIn)! \\ \hline
+\textbf{Torch} & \verb!matOut = torch.sqrt(matIn)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Square root of each element is saved in an output tensor with the same size as the input tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Square root of elements:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!matIn = sqrt(matIn)! \\ \hline
+\textbf{Torch} & \verb!matIn = torch.sqrt(matIn)! or \verb!matIn.sqrt(matIn)! or \verb!matIn:sqrt()! \\ \hline
+\end{tabular}
+\\
+
+\noindent \verb!matIn:sqrt()! is same as \verb!matIn.sqrt(matIn)!. Generally in Lua, \verb!object:function(p1, p2, ...)! is same as\\ \verb!object.function(object, p1, p2, ...)!, where the function's object is passed as the first hidden input. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Element-wise power to a scalar:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!matOut = matIn.^5! \\ \hline
+\textbf{Torch} & \verb!matOut = torch.pow(matIn, 5)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Each element to the power of 5 is saved in an output tensor with the same size as the input tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Element-wise power to a tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!matOut = matIn.^matPow! \\ \hline
+\textbf{Torch} & \verb!matOut = torch.cpow(matIn, matPow)! \\ \hline
+\end{tabular}
+\\
+
+\noindent Each element of \verb!matIn! to the power of the corresponding element of \verb!matPow! is saved in an output tensor with the same size as the input tensor.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
