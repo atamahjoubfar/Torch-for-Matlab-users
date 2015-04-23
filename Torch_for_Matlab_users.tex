@@ -23,7 +23,7 @@
 \begin{document}
 \maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{General}
+\section*{General Commands}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Get help for a specific function:}
 
@@ -51,12 +51,12 @@
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb!testVar2 = testVar1;! \\ \hline
-\textbf{Torch} & \verb!testVar2 = testVar1;! \\ \hline
+\textbf{Matlab} & \verb!testVar2 = testVar1;! or \verb!testVar2 = testVar1! \\ \hline
+\textbf{Torch} & \verb!testVar2 = testVar1;! or \verb!testVar2 = testVar1! \\ \hline
 \end{tabular}
 \\
 
-\noindent The value of \verb!testVar1! variable (3.2333) is assigned to \verb!testVar2! variable.
+\noindent The value of variable \verb!testVar1! (3.2333) is assigned to variable \verb!testVar2!.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Matrices and Tensors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -69,7 +69,7 @@
 \end{tabular}
 \\
 
-\noindent A \verb!2!$\times$\verb!4! matrix (two-dimensional tensor) with specified elements is formed and assigned to \verb!m!.
+\noindent A \verb!2!$\times$\verb!4! two-dimensional tensor (matrix) with specified elements is formed and assigned to \verb!m!.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a row vector:}
 
@@ -80,7 +80,7 @@
 \end{tabular}
 \\
 
-\noindent But, this is not used as a vector in Torch because it is still a two-dimensional Tensor.
+\noindent Unlike Matlab, this is not used as a vector in Torch because it is a two-dimensional Tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a column vector:}
 
@@ -91,7 +91,7 @@
 \end{tabular}
 \\
 
-\noindent But, this is not used as a vector in Torch because it is still a two-dimensional Tensor.
+\noindent Again unlike Matlab, this is not used as a vector in Torch because it is still a two-dimensional Tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a one-dimensional tensor:}
 
@@ -102,7 +102,7 @@
 \end{tabular}
 \\
 
-\noindent Matlab does not have \textit{one-dimensional tensors}; this can be verified by running \verb!ndims([9, 7, 6, 8])!. On the other hand, for many operations that Matlab uses row or column vectors, Torch uses a one-dimensional tensor.
+\noindent Matlab does not have \textit{one-dimensional tensors}; this can be verified by running \verb!ndims([9, 7, 6, 8])!. On the other hand, for many operations that Matlab uses row or column vectors, Torch uses one-dimensional tensors.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Access an element in a vector or one-dimensional tensor:}
 
@@ -137,7 +137,7 @@
 
 \noindent Second to fourth elements of the vector are accessed.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Access an element in a Matrix:}
+\subsubsection*{Access an element in a matrix:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -146,9 +146,9 @@
 \end{tabular}
 \\
 
-\noindent In both cases, second row, third column element is accessed.
+\noindent Second row, third column element is accessed.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Access a row in a Matrix as a two-dimensional tensor:}
+\subsubsection*{Access a row in a matrix as a two-dimensional tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -159,7 +159,7 @@
 
 \noindent The returned row is a two-dimensional tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Access a row in a Matrix as a one-dimensional tensor:}
+\subsubsection*{Access a row in a matrix as a one-dimensional tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -170,7 +170,7 @@
 
 \noindent The returned row is a one-dimensional tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Access a column in a Matrix as a two-dimensional tensor:}
+\subsubsection*{Access a column in a matrix as a two-dimensional tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -181,7 +181,7 @@
 
 \noindent The returned column is a two-dimensional tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Access a column in a Matrix as a one-dimensional tensor:}
+\subsubsection*{Access a column in a matrix as a one-dimensional tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -192,7 +192,7 @@
 
 \noindent The returned column is a one-dimensional tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Access a range of elements in a Matrix:}
+\subsubsection*{Access a range of elements in a matrix:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -201,11 +201,11 @@
 \end{tabular}
 \\
 
-\noindent The second to fourth columns of the second row are returned. In Torch, there is a slight difference between using \verb!index! (e.g. \verb!2!) or \verb!{index}! (e.g. \verb!{2}!) for pointing to a singleton dimension. For \verb!{index}!, the dimension of the returned tensor is same as the original tensor (e.g. tensor~\verb!m!). For \verb!index!, the singleton dimension is removed, and the dimension of the returned tensor is one less than the original tensor (e.g. tensor~\verb!m!). Also, \verb!{}! refers to all elements in that dimension. Finally, \verb!-index! means \verb!index!-th element from the end.
+\noindent The second to fourth columns of the second row are returned. In Torch, there is a slight difference between using \verb!index! (e.g. \verb!2!) or \verb!{index}! (e.g. \verb!{2}!) for pointing to a singleton dimension. For \verb!{index}!, the dimension of the returned tensor is same as the original tensor (e.g. tensor~\verb!m!). For \verb!index!, the singleton dimension is removed, and the dimension of the returned tensor is one less than the original tensor (e.g. tensor~\verb!m!). Also, \verb!{}! refers to all elements in that dimension. Finally, \verb!-index! (e.g. \verb!-4!) means \verb!index!-th (e.g. fourth) element from the end.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Forming Basic Tensors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create a tensor over a range of values with unit step:}
+\subsubsection*{Create a vector over a range of values with unit step:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -216,7 +216,7 @@
 
 \noindent Torch's result is a one-dimensional tensor with elements spaced \verb!1! strating at \verb!3!.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create a tensor over a range of values with an arbitrary step:}
+\subsubsection*{Create a vector over a range of values with an arbitrary step:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -227,7 +227,7 @@
 
 \noindent Torch's result is a one-dimensional tensor with elements spaced \verb!-1.9! strating at \verb!3!.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create a tensor with equally-spaced elements:}
+\subsubsection*{Create a vector with linearly-located elements:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -238,7 +238,7 @@
 
 \noindent Torch's result is a one-dimensional tensor with \verb!50! equally-spaced elements strating at \verb!3! and ending at \verb!8!.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create a tensor with exponentially-spaced elements:}
+\subsubsection*{Create a vector with logarithmically-located elements:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -249,7 +249,7 @@
 
 \noindent Torch's result is a one-dimensional tensor with \verb!50! exponentially-spaced elements strating at $10^3$ and ending at $10^8$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create all zeros vector or one-dimensional tensor:}
+\subsubsection*{Create an all zeros vector or one-dimensional tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -260,7 +260,7 @@
 
 \noindent Torch's result is a one-dimensional tensor with \verb!4! zero elements.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create all zeros matrix:}
+\subsubsection*{Create an all zeros matrix:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -271,7 +271,7 @@
 
 \noindent \verb!5!$\times$\verb!3! matrix of zeros is generated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create all ones vector or one-dimensional tensor:}
+\subsubsection*{Create an all ones vector or one-dimensional tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -282,7 +282,7 @@
 
 \noindent Torch's result is a one-dimensional tensor with \verb!4! one elements.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create all ones matrix:}
+\subsubsection*{Create an all ones matrix:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -293,18 +293,29 @@
 
 \noindent \verb!5!$\times$\verb!3! matrix of ones is generated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create identity matrix:}
+\subsubsection*{Create an identity matrix:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
-\textbf{Matlab} & \verb!eye(4)! or \verb!eye(5,3)! \\ \hline
-\textbf{Torch} & \verb!torch.eye(3)! or \verb!torch.eye(5,3)! \\ \hline
+\textbf{Matlab} & \verb!eye(5,3)! \\ \hline
+\textbf{Torch} & \verb!torch.eye(5,3)! \\ \hline
 \end{tabular}
 \\
 
-\noindent \verb!4!$\times$\verb!4! and \verb!5!$\times$\verb!3! identity matrices are generated, respectively.
+\noindent \verb!5!$\times$\verb!3! identity matrix is generated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create uniformly-distributed random vector or one-dimensional tensor:}
+\subsubsection*{Create a square identity matrix:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!eye(4)! \\ \hline
+\textbf{Torch} & \verb!torch.eye(4)! \\ \hline
+\end{tabular}
+\\
+
+\noindent \verb!4!$\times$\verb!4! identity matrix is generated.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Create a uniformly-distributed random vector or one-dimensional tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -315,7 +326,7 @@
 
 \noindent Torch's result is a one-dimensional tensor with \verb!4! random elements from uniform probability distribution.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create uniformly-distributed random matrix:}
+\subsubsection*{Create a uniformly-distributed random matrix:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -326,7 +337,7 @@
 
 \noindent \verb!5!$\times$\verb!3! matrix of random elements from uniform probability distribution is generated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create normally-distributed random vector or one-dimensional tensor:}
+\subsubsection*{Create a normally-distributed random vector or one-dimensional tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -337,7 +348,7 @@
 
 \noindent Torch's result is a one-dimensional tensor with \verb!4! random elements from normal probability distribution.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Create normally-distributed random matrix:}
+\subsubsection*{Create a normally-distributed random matrix:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -359,7 +370,7 @@
 \end{tabular}
 \\
 
-\noindent Matlab internally handles memory assignment for a copied array. As soon, as the copied array is changed in Matlab, a copy of the initial array is generated. Whereas, Torch gives this option to have a copied tensor that points to the same location in the memory as the initial tensor. For example, if elements of \verb!matOut! are modified here, the same changes happen to the elements of the \verb!matIn!.
+\noindent Matlab internally handles memory assignment for a copied array. As soon, as the copied array is modified in Matlab, a copy of the initial array is generated. Whereas, Torch gives this option to have a copied tensor that points to the same location in the memory as the initial tensor. For example, if elements of the \verb!matOut! tensor are modified here, the same changes happen to the elements of the \verb!matIn! tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Tensor assignment with memory copy:}
 
@@ -370,9 +381,9 @@
 \end{tabular}
 \\
 
-\noindent Matlab's internal memory handling for array assignment is usually closer to this. Here, Torch generates a copy of the array contents in memory. Any changes in \verb!matOut! elements are independent of the changes in the elements of the \verb!matIn!.
+\noindent Matlab's internal memory handling for array assignment is somewhat closer to this. Here, Torch generates a copy of the tensor content in memory. Any changes in \verb!matOut! elements are independent of the changes in the elements of the \verb!matIn! tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Square root of elements:}
+\subsubsection*{Square root of elements returned in a new tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -383,7 +394,7 @@
 
 \noindent Square root of each element is saved in an output tensor with the same size as the input tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Square root of elements:}
+\subsubsection*{Square root of elements returned in the same tensor:}
 
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
@@ -392,7 +403,7 @@
 \end{tabular}
 \\
 
-\noindent \verb!matIn:sqrt()! is same as \verb!matIn.sqrt(matIn)!. Generally in Lua, \verb!object:function(p1, p2, ...)! is same as\\ \verb!object.function(object, p1, p2, ...)!, where the function's object is passed as the first hidden input. 
+\noindent \verb!matIn:sqrt()! is same as \verb!matIn.sqrt(matIn)!. Generally in Torch, \verb!object:function(p1, p2, ...)! is same as\\ \verb!object.function(object, p1, p2, ...)!, where the function's object (also known as \verb!self!) is passed as the first input to the function. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Element-wise power to a scalar:}
 
@@ -414,7 +425,7 @@
 \end{tabular}
 \\
 
-\noindent Each element of \verb!matIn! to the power of the corresponding element of \verb!matPow! is saved in an output tensor with the same size as the input tensor.
+\noindent Each element of the \verb!matIn! tensor to the power of the corresponding element of the \verb!matPow! tensor is saved in an output tensor with the same size as the input tensor.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
