@@ -36,6 +36,30 @@ Matrices and Tensors
 
 A 2×4 two-dimensional tensor (matrix) with specified elements is formed and assigned to `m`.
 
+### Number of dimensions of a tensor:
+
+| **Matlab** | `ndims(m)` |
+|:-----------|:-----------|
+| **Torch**  | `m:dim()`  |
+
+For example here, for the previously defined two-dimensional tensor (matrix) `m`, the returned number is 2.
+
+### Size of a tensor in all dimensions:
+
+| **Matlab** | `size(m)`  |
+|:-----------|:-----------|
+| **Torch**  | `m:size()` |
+
+For example here, for the previously defined two-dimensional tensor (matrix) `m`, the returned numbers are 2 and 4, which are the numbers of rows and columns, respectively.
+
+### Size of a tensor in a specific dimension:
+
+| **Matlab** | `size(m,2)` |
+|:-----------|:------------|
+| **Torch**  | `m:size(2)` |
+
+For example here, for the previously defined two-dimensional tensor (matrix) `m`, the returned number is 4, which is the size of the second dimension (number of columns).
+
 ### Create a row vector:
 
 | **Matlab** | `v = [9, 7, 6, 8]` or `v = [9 7 6 8]` |
@@ -266,6 +290,54 @@ Matlab internally handles memory assignment for a copied array. As soon, as the 
 
 Matlab’s internal memory handling for array assignment is somewhat closer to this. Here, Torch generates a copy of the tensor content in memory. Any changes in `matOut` elements are independent of the changes in the elements of the `matIn` tensor.
 
+### Multiplication of a tensor by a scalar:
+
+| **Matlab** | `matIn * 17` or `17 * matIn` |
+|:-----------|:-----------------------------|
+| **Torch**  | `matIn * 17`                 |
+
+Pay attention that in Torch, the scalar cannot be the first argument of the multiplication.
+
+### Matrix multiplication of a tensor by another tensor:
+
+| **Matlab** | `matA * matB` |
+|:-----------|:--------------|
+| **Torch**  | `matA * matB` |
+
+Tensor sizes must be appropriate for the multiplication.
+
+### Element-wise multiplication of a tensor by another tensor:
+
+| **Matlab** | `matA .* matB`           |
+|:-----------|:-------------------------|
+| **Torch**  | `torch.cmul(matA, matB)` |
+
+Tensor sizes must be identical.
+
+### Transpose of a two-dimensional tensor (matrix):
+
+| **Matlab** | `matIn.'`   |
+|:-----------|:------------|
+| **Torch**  | `matIn:t()` |
+
+A new tensor, which is the transpose of the input matrix (two-dimensional tensor) is returned.
+
+### Vertical tensor concatenation:
+
+| **Matlab** | `[matTop; matBottom]`             |
+|:-----------|:----------------------------------|
+| **Torch**  | `torch.cat(matTop, matBottom, 1)` |
+
+The number of columns in input tensors must be equal.
+
+### Horizontal tensor concatenation:
+
+| **Matlab** | `[matLeft, matRight]`             |
+|:-----------|:----------------------------------|
+| **Torch**  | `torch.cat(matLeft, matRight, 2)` |
+
+The number of rows in input tensors must be equal.
+
 ### Square root of elements returned in a new tensor:
 
 | **Matlab** | `matOut = sqrt(matIn)`       |
@@ -285,16 +357,16 @@ Square root of each element is saved in an output tensor with the same size as t
 
 ### Element-wise power to a scalar:
 
-| **Matlab** | `matOut = matIn.^5`            |
-|:-----------|:-------------------------------|
-| **Torch**  | `matOut = torch.pow(matIn, 5)` |
+| **Matlab** | `matIn.^5`            |
+|:-----------|:----------------------|
+| **Torch**  | `torch.pow(matIn, 5)` |
 
 Each element to the power of 5 is saved in an output tensor with the same size as the input tensor.
 
 ### Element-wise power to a tensor:
 
-| **Matlab** | `matOut = matIn.^matPow`             |
-|:-----------|:-------------------------------------|
-| **Torch**  | `matOut = torch.cpow(matIn, matPow)` |
+| **Matlab** | `matIn.^matPow`             |
+|:-----------|:----------------------------|
+| **Torch**  | `torch.cpow(matIn, matPow)` |
 
 Each element of the `matIn` tensor to the power of the corresponding element of the `matPow` tensor is saved in an output tensor with the same size as the input tensor.
