@@ -1,5 +1,9 @@
 % This is a XeLaTeX document. To process and view it use the following command:
 % xelatex Torch_for_Matlab_users.tex && open Torch_for_Matlab_users.pdf
+% Also, I avoided using equations, to make it compatible for automatic markdown conversion. Here is the command for that:
+% pandoc -r latex -w markdown_github -o Torch_for_Matlab_users.md Torch_for_Matlab_users.tex
+% To view the Github markdown locally you can use grip package:
+% grip Torch_for_Matlab_users.md
 \documentclass[letter]{article}
 \usepackage[margin=.7in]{geometry}
 
@@ -69,7 +73,7 @@
 \end{tabular}
 \\
 
-\noindent A \verb!2!$\times$\verb!4! two-dimensional tensor (matrix) with specified elements is formed and assigned to \verb!m!.
+\noindent A 2×4 two-dimensional tensor (matrix) with specified elements is formed and assigned to \verb!m!.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a row vector:}
 
@@ -247,7 +251,7 @@
 \end{tabular}
 \\
 
-\noindent Torch's result is a one-dimensional tensor with \verb!50! exponentially-spaced elements strating at $10^3$ and ending at $10^8$.
+\noindent Torch's result is a one-dimensional tensor with \verb!50! exponentially-spaced elements strating at 10\textsuperscript{3} and ending at 10\textsuperscript{8}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create an all zeros vector or one-dimensional tensor:}
 
@@ -269,7 +273,7 @@
 \end{tabular}
 \\
 
-\noindent \verb!5!$\times$\verb!3! matrix of zeros is generated.
+\noindent 5×3 matrix of zeros is generated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create an all ones vector or one-dimensional tensor:}
 
@@ -291,7 +295,7 @@
 \end{tabular}
 \\
 
-\noindent \verb!5!$\times$\verb!3! matrix of ones is generated.
+\noindent 5×3 matrix of ones is generated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create an identity matrix:}
 
@@ -302,7 +306,7 @@
 \end{tabular}
 \\
 
-\noindent \verb!5!$\times$\verb!3! identity matrix is generated.
+\noindent 5×3 identity matrix is generated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a square identity matrix:}
 
@@ -313,7 +317,7 @@
 \end{tabular}
 \\
 
-\noindent \verb!4!$\times$\verb!4! identity matrix is generated.
+\noindent 4×4 identity matrix is generated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a uniformly-distributed random vector or one-dimensional tensor:}
 
@@ -335,7 +339,7 @@
 \end{tabular}
 \\
 
-\noindent \verb!5!$\times$\verb!3! matrix of random elements from uniform probability distribution is generated.
+\noindent 5×3 matrix of random elements from uniform probability distribution is generated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a normally-distributed random vector or one-dimensional tensor:}
 
@@ -357,7 +361,7 @@
 \end{tabular}
 \\
 
-\noindent \verb!5!$\times$\verb!3! matrix of random elements from normal probability distribution is generated.
+\noindent 5×3 matrix of random elements from normal probability distribution is generated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Operations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
