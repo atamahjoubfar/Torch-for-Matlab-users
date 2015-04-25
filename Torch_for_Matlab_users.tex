@@ -64,6 +64,17 @@
 
 \noindent The value of variable \verb!testVar1! (3.2333) is assigned to variable \verb!testVar2!.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Display strings and numbers:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!disp(['The distance is ', num2str(100), ' meters.'])! \\ \hline
+\textbf{Torch} & \verb!print('The distance is ' .. 100 .. ' meters.')! \\ \hline
+\end{tabular}
+\\
+
+\noindent This prints \verb!The distance is 100 meters.! in the output.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Matrices and Tensors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a two-dimensional tensor or matrix:}

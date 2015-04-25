@@ -25,6 +25,14 @@ The resultant value (3.2333) is assigned to variable `testVar1`.
 
 The value of variable `testVar1` (3.2333) is assigned to variable `testVar2`.
 
+### Display strings and numbers:
+
+| **Matlab** | `disp(['The distance is ', num2str(100), ' meters.'])` |
+|:-----------|:-------------------------------------------------------|
+| **Torch**  | `print('The distance is ' .. 100 .. ' meters.')`       |
+
+This prints `The distance is 100 meters.` in the output.
+
 Matrices and Tensors
 ====================
 
