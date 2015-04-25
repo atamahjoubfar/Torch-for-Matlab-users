@@ -93,7 +93,7 @@
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
 \textbf{Matlab} & \verb!size(m)! \\ \hline
-\textbf{Torch} & \verb!m:size()! \\ \hline
+\textbf{Torch} & \verb!m:size()! or \verb!#m! \\ \hline
 \end{tabular}
 \\
 
@@ -104,11 +104,22 @@
 \begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
 \hline
 \textbf{Matlab} & \verb!size(m,2)! \\ \hline
-\textbf{Torch} & \verb!m:size(2)! \\ \hline
+\textbf{Torch} & \verb!m:size(2)! or \verb!(#m)[2]! \\ \hline
 \end{tabular}
 \\
 
 \noindent For example here, for the previously defined two-dimensional tensor (matrix) \verb!m!, the returned number is 4, which is the size of the second dimension (number of columns).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Number of elements in a tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!numel(m)! \\ \hline
+\textbf{Torch} & \verb!m:numel()! \\ \hline
+\end{tabular}
+\\
+
+\noindent For example here, for the previously defined two-dimensional tensor (matrix) \verb!m!, the returned number is 8.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a row vector:}
 

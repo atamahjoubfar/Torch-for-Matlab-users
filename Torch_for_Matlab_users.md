@@ -46,19 +46,27 @@ For example here, for the previously defined two-dimensional tensor (matrix) `m`
 
 ### Size of a tensor in all dimensions:
 
-| **Matlab** | `size(m)`  |
-|:-----------|:-----------|
-| **Torch**  | `m:size()` |
+| **Matlab** | `size(m)`          |
+|:-----------|:-------------------|
+| **Torch**  | `m:size()` or `#m` |
 
 For example here, for the previously defined two-dimensional tensor (matrix) `m`, the returned numbers are 2 and 4, which are the numbers of rows and columns, respectively.
 
 ### Size of a tensor in a specific dimension:
 
-| **Matlab** | `size(m,2)` |
-|:-----------|:------------|
-| **Torch**  | `m:size(2)` |
+| **Matlab** | `size(m,2)`              |
+|:-----------|:-------------------------|
+| **Torch**  | `m:size(2)` or `(#m)[2]` |
 
 For example here, for the previously defined two-dimensional tensor (matrix) `m`, the returned number is 4, which is the size of the second dimension (number of columns).
+
+### Number of elements in a tensor:
+
+| **Matlab** | `numel(m)`  |
+|:-----------|:------------|
+| **Torch**  | `m:numel()` |
+
+For example here, for the previously defined two-dimensional tensor (matrix) `m`, the returned number is 8.
 
 ### Create a row vector:
 
