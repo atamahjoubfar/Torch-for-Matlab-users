@@ -33,6 +33,14 @@ The value of variable `testVar1` (3.2333) is assigned to variable `testVar2`.
 
 This prints `The distance is 100 meters.` in the output.
 
+### Determine type:
+
+| **Matlab** | `class('Hi')`      |
+|:-----------|:-------------------|
+| **Torch**  | `torch.type('Hi')` |
+
+For this example, Matlab returns `char`, and Torch returns `string`.
+
 Matrices and Tensors
 ====================
 
@@ -305,6 +313,14 @@ Matlab internally handles memory assignment for a copied array. As soon, as the 
 | **Torch**  | `matOut = matIn:clone()` or `matOut = matIn:clone();` |
 
 Matlab’s internal memory handling for array assignment is somewhat closer to this. Here, Torch generates a copy of the tensor content in memory. Any changes in `matOut` elements are independent of the changes in the elements of the `matIn` tensor.
+
+### Change type of a tensor:
+
+| **Matlab** | `uint8(matIn)`, `int8(matIn)`, `int16(matIn)`, `int32(matIn)`, `int64(matIn)`, `single(matIn)`, or `double(matIn)`   |
+|:-----------|:---------------------------------------------------------------------------------------------------------------------|
+| **Torch**  | `matIn:byte()`, `matIn:char()`, `matIn:short()`, `matIn:int()`, `matIn:long()`, `matIn:float()`, or `matIn:double()` |
+
+By default, double precision is used.
 
 ### Multiplication of a tensor by a scalar:
 

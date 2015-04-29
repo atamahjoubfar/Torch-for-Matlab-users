@@ -75,6 +75,17 @@
 
 \noindent This prints \verb!The distance is 100 meters.! in the output.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Determine type:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!class('Hi')! \\ \hline
+\textbf{Torch} & \verb!torch.type('Hi')! \\ \hline
+\end{tabular}
+\\
+
+\noindent For this example, Matlab returns \verb!char!, and Torch returns \verb!string!.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Matrices and Tensors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Create a two-dimensional tensor or matrix:}
@@ -443,6 +454,17 @@
 \\
 
 \noindent Matlab's internal memory handling for array assignment is somewhat closer to this. Here, Torch generates a copy of the tensor content in memory. Any changes in \verb!matOut! elements are independent of the changes in the elements of the \verb!matIn! tensor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Change type of a tensor:}
+
+\begin{tabular}{|p{\frstClmnWidth{}}|p{\scndClmnWidth{}}|}
+\hline
+\textbf{Matlab} & \verb!uint8(matIn)!, \verb!int8(matIn)!, \verb!int16(matIn)!, \verb!int32(matIn)!, \verb!int64(matIn)!, \verb!single(matIn)!, or \verb!double(matIn)! \\ \hline
+\textbf{Torch} & \verb!matIn:byte()!, \verb!matIn:char()!, \verb!matIn:short()!, \verb!matIn:int()!, \verb!matIn:long()!, \verb!matIn:float()!, or \verb!matIn:double()! \\ \hline
+\end{tabular}
+\\
+
+\noindent By default, double precision is used.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Multiplication of a tensor by a scalar:}
 
