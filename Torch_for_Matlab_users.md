@@ -138,7 +138,7 @@ Second to fourth elements of the vector are accessed.
 |:-----------|:-------------------------|
 | **Torch**  | `m[{2, 3}]` or `m[2][3]` |
 
-Second row, third column element is accessed.
+Second row, third column element is accessed. Accessing in the form of `m[2][3]` is not recommended, because it causes an `out of memory` error for large tensors.
 
 ### Access a row in a matrix as a two-dimensional tensor:
 
